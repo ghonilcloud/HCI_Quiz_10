@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Main Page</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+  <script>
+    $(document).ready(function(){
+      $("#flip").click(function(){
+        $("#panel").slideToggle("slow");
+        });
+      });
+        
+    $(document).ready(function(){
+      $("#flip2").click(function(){
+        $("#panel2").slideToggle("slow");
+        });
+      });
+        
+    $(document).ready(function(){
+      $("#flip3").click(function(){
+        $("#panel3").slideToggle("slow");
+        });
+      });
+  </script>
+</head>
+
+<body>  
+  <h1 class="text-danger text-center" style="font-size:120px;">Interactive Infographics</h1>
+  <h2 class="text-danger text-center">Our infographics regarding our projects and skills.</h2>
+  <div class="divcenter">
+    <h2 class="text-left text-info" style="color:white;">Our Infographics</h2><br>
+    <div id="flip" style="background-color:rgb(196, 80, 98);">
+      Budgeting System
+      <ul>
+      <l1>Total Income: $12,000,000.00</li>
+      </ul>
+    </div>
+    
+    <div id="panel" style="background-color:rgb(255, 255, 255);">
+      <canvas id="myChart" style="width:100%;max-width:900px"></canvas>
+      <script>
+        const xValues = ["Starbucks Partnership", "Kopi Kenangan Investment", "Brown Residences", "Cake LLC.", "Tour Le Jours Partnership"];
+        const yValues = [6000000, 2500000, 2000000, 1000000, 250000];
+        const barColors = [
+          "#1e7145",
+          "#FF0000",
+          "#964B00",
+          "#FFC0CB",
+          "	#0000FF"
+        ];
+          new Chart("myChart", {
+            type: "pie",
+            data: {
+              labels: xValues,
+              datasets: [{
+                backgroundColor: barColors,
+                data: yValues
+              }]
+            },
+            options: {
+              title: {
+                display: true,
+                text: "Total Income Profit 2023"
+              }
+            }
+          });
+          </script>
+        </div>
+
+        <div id="flip2" style="background-color:rgb(196, 80, 98);">
+            Weekly Profit Streams
+        </div>
+        <div id="panel2" style="background-color:rgb(255, 255, 255);">
+          <p>Y-axis is counted in thousands</p>
+          <canvas id="myChart2" style="width:100%;max-width:900px"></canvas>
+          <script>
+          const fValues = ["Monday","Tuesday","Wednesday","Thursday","Friday"];
+          const rValues = [10, 15, 20, 20, 15];
+
+          new Chart("myChart2", {
+            type: "line",
+            data: {
+              labels: fValues,
+              datasets: [{
+                fill: false,
+                lineTension: 0,
+                backgroundColor: "rgba(0,0,255,1.0)",
+                borderColor: "rgba(0,0,255,0.1)",
+                data: rValues
+              }]
+            },
+            options: {
+              legend: {display: false},
+              scales: {
+                yAxes: [{ticks: {min: 10, max:20}}],
+              }
+            }
+          });
+          </script>
+        </div>
+    </div>
+</body>
